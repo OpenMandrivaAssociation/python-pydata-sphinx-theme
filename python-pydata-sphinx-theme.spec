@@ -12,6 +12,7 @@ BuildRequires:	python
 BuildSystem:	python
 BuildArch:	noarch
 BuildRequires:	python%{pyver}dist(nodeenv)
+BuildRequires:	python%{pyver}dist(sphinx-theme-builder)
 BuildRequires:	nodejs
 BuildRequires:	yarn
 
