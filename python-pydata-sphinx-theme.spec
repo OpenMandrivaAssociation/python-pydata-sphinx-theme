@@ -1,16 +1,19 @@
+%define oname pydata_sphinx_theme
+
 Name:		python-pydata-sphinx-theme
-Version:	0.16.1
+Version:	0.17.0
 Release:	1
-Source0:	https://files.pythonhosted.org/packages/source/p/pydata_sphinx_theme/pydata_sphinx_theme-%{version}.tar.gz
-Source1:	pydata_sphinx_theme-0.16.1-vendor.tar.xz
-Source100:	prepare_vendor.sh
 Summary:	Bootstrap-based Sphinx theme from the PyData community
-URL:		https://pypi.org/project/pydata-sphinx-theme/
 License:	BSD-3-Clause
 Group:		Development/Python
-BuildRequires:	python
+URL:		https://pypi.org/project/pydata-sphinx-theme/
+Source0:	https://files.pythonhosted.org/packages/source/p/pydata_sphinx_theme/pydata_sphinx_theme-%{version}.tar.gz
+Source1:	pydata_sphinx_theme-%{version}-vendor.tar.xz
+Source100:	prepare_vendor.sh
+
 BuildSystem:	python
 BuildArch:	noarch
+BuildRequires:	python
 BuildRequires:	python%{pyver}dist(nodeenv)
 BuildRequires:	python%{pyver}dist(sphinx-theme-builder)
 BuildRequires:	nodejs
@@ -22,7 +25,7 @@ BuildRequires:	yarn
 Bootstrap-based Sphinx theme from the PyData community
 
 %prep
-%autosetup -p1 -a1 -n pydata_sphinx_theme-%{version}
+%autosetup -p1 -a1 -n %{oname}-%{version}
 sed -i -e 's,^node-version =.*,node-version = "%{node_version}",' pyproject.toml
 
 %build -p
@@ -31,5 +34,5 @@ yarn install --offline
 nodeenv --node=system --prebuilt --clean-src $(pwd)/.nodeenv
 
 %files
-%{py_sitedir}/pydata_sphinx_theme
-%{py_sitedir}/pydata_sphinx_theme-*.*-info
+%{py_sitedir}/%{oname}
+%{py_sitedir}/%{oname}-%{version}.dist-info
