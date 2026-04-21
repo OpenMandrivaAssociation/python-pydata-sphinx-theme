@@ -1,7 +1,7 @@
 %define oname pydata_sphinx_theme
 
 Name:		python-pydata-sphinx-theme
-Version:	0.17.0
+Version:	0.17.1
 Release:	1
 Summary:	Bootstrap-based Sphinx theme from the PyData community
 License:	BSD-3-Clause
@@ -13,7 +13,6 @@ Source100:	prepare_vendor.sh
 
 BuildSystem:	python
 BuildArch:	noarch
-BuildRequires:	python
 BuildRequires:	python%{pyver}dist(nodeenv)
 BuildRequires:	python%{pyver}dist(sphinx-theme-builder)
 BuildRequires:	nodejs
