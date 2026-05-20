@@ -48,7 +48,7 @@ pwd
 ls
 popd
 
-cd $PKG_PATH
+pushd $PKG_PATH
 
 export YARN_CACHE_FOLDER="$PWD/.package-cache"
 echo ">>>>>> Install npm modules"
@@ -59,8 +59,8 @@ if [ $? -ne 0 ]; then
 fi
 
 echo ">>>>>> Package vendor files"
-rm -f $PKG_DIR/${PKG_NAME}-${PKG_VERSION}-vendor.tar.xz
-XZ_OPT="-9e -T$(nproc)" tar cJf $PKG_DIR/${PKG_NAME}-${PKG_VERSION}-vendor.tar.xz .package-cache
+rm -f $PKG_DIR/${PKG_NAME}-${PKG_VERSION}-node-vendor.tar.xz
+XZ_OPT="-9e -T$(nproc)" tar cJf $PKG_DIR/${PKG_NAME}-${PKG_VERSION}-node-vendor.tar.xz .package-cache
 if [ $? -ne 0 ]; then
     cleanup_and_exit 1
 fi
@@ -68,7 +68,7 @@ fi
 yarn add license-checker
 yarn license-checker --summary | sed "s#$PKG_PATH#/tmp/#g" > $PKG_DIR/${PKG_NAME}-${PKG_VERSION}-vendor-licenses.txt
 
-cd -
+popd
 
 rm -rf .package-cache node_modules
 cleanup_and_exit 0

@@ -1,14 +1,14 @@
 %define oname pydata_sphinx_theme
 
 Name:		python-pydata-sphinx-theme
-Version:	0.17.1
+Version:	0.18.0
 Release:	1
 Summary:	Bootstrap-based Sphinx theme from the PyData community
 License:	BSD-3-Clause
 Group:		Development/Python
 URL:		https://pypi.org/project/pydata-sphinx-theme/
 Source0:	https://files.pythonhosted.org/packages/source/p/pydata_sphinx_theme/pydata_sphinx_theme-%{version}.tar.gz
-Source1:	pydata_sphinx_theme-%{version}-vendor.tar.xz
+Source1:	pydata_sphinx_theme-%{version}-node-vendor.tar.xz
 Source100:	prepare_vendor.sh
 
 BuildSystem:	python
