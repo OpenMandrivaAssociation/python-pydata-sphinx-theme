@@ -2,7 +2,7 @@
 
 Name:		python-pydata-sphinx-theme
 Version:	0.18.0
-Release:	1
+Release:	2
 Summary:	Bootstrap-based Sphinx theme from the PyData community
 License:	BSD-3-Clause
 Group:		Development/Python
